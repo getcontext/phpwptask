@@ -14,6 +14,10 @@ use salamon\wordpress\nonce\Nonce;
 class OtherNonce implements Nonce
 {
     /**
+     * @var string
+     */
+    protected $id;
+    /**
      * @var int
      */
     protected $lifetime;
@@ -59,5 +63,9 @@ class OtherNonce implements Nonce
         $this->param = $param;
     }
 
-
+    public function getId(): string
+    {
+        if ($this->id) return $this->id;
+        $this->id = base64_encode($this->get());
+    }
 }

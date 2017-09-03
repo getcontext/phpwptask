@@ -15,4 +15,6 @@ interface Nonce
     public function get(): string;
 
     public function setLifetime(int $limit): void;
+
+    public function getId(): string;
 }

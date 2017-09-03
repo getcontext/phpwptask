@@ -61,4 +61,8 @@ class ErrorNonce implements Nonce
     }
 
 
+    public function getId(): string
+    {
+        return '';
+    }
 }

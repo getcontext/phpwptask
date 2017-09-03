@@ -9,10 +9,14 @@
 namespace salamon\wordpress\nonce;
 
 //service facade
+use salamon\wordpress\nonce\nonce\FormNonce;
+use salamon\wordpress\nonce\nonce\OtherNonce;
+use function Sodium\add;
+
 final class NonceService
 {
 
-    private $nonces;
+    private $nonces = [];
 
     /**
      * NonceService constructor.
@@ -24,18 +28,21 @@ final class NonceService
     public function getUrlNonce(string $param): Nonce
     {
         $nonce = NonceFactory::getUrlNonce($param);
+        $this->addNonce($nonce);
         return $nonce;
     }
 
-    public function getFormNonce(string $param): Nonce
+    public function getFormNonce(string $param): FormNonce
     {
         $nonce = NonceFactory::getFormNonce($param);
+        $this->addNonce($nonce);
         return $nonce;
     }
 
-    public function getOtherNonce(string $param): Nonce
+    public function getOtherNonce(string $param): OtherNonce
     {
         $nonce = NonceFactory::getOtherNonce($param);
+        $this->addNonce($nonce);
         return $nonce;
     }
 
@@ -56,5 +63,10 @@ final class NonceService
     public function applyNonceLifetime(int $seconds): void
     {
         add_filter('nonce_life', $seconds);
+    }
+
+    private function addNonce(Nonce $nonce): void
+    {
+        array_push($this->nonces, $nonce);
     }
 }

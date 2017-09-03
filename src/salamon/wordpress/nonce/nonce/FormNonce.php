@@ -14,6 +14,10 @@ use salamon\wordpress\nonce\Nonce;
 class FormNonce implements Nonce
 {
     /**
+     * @var string
+     */
+    protected $id;
+    /**
      * @var int
      */
     protected $lifetime;
@@ -29,7 +33,7 @@ class FormNonce implements Nonce
 
     public function get(): string
     {
-        if(!$this->isBuffered()){
+        if (!$this->isBuffered()) {
             wp_nonce_field($this->getParam());
             return "";
         }
@@ -89,4 +93,9 @@ class FormNonce implements Nonce
         $this->buffered = $buffered;
     }
 
+    public function getId(): string
+    {
+        if ($this->id) return $this->id;
+        $this->id = base64_encode($this->get());
+    }
 }
