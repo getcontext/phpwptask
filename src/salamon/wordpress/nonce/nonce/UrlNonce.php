@@ -48,7 +48,7 @@ class UrlNonce implements Nonce
     /**
      * @param mixed $lifetime
      */
-    public function setLifetime($lifetime)
+    public function setLifetime($lifetime): void
     {
         $this->lifetime = $lifetime;
     }
@@ -64,7 +64,7 @@ class UrlNonce implements Nonce
     /**
      * @param mixed $param
      */
-    public function setParam($param)
+    public function setParam($param): void
     {
         $this->param = $param;
     }

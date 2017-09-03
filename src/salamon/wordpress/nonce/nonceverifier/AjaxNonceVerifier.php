@@ -17,6 +17,6 @@ class AjaxNonceVerifier implements NonceVerifier
 
     public function isValid(Nonce $nonce): bool
     {
-        // TODO: Implement isValid() method.
+        check_ajax_referer($nonce->getParam());
     }
 }
