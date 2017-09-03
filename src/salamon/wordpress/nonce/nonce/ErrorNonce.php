@@ -11,7 +11,7 @@ namespace salamon\wordpress\nonce\nonce;
 
 use salamon\wordpress\nonce\Nonce;
 
-class OtherNonce implements Nonce
+class ErrorNonce implements Nonce
 {
     /**
      * @var int
@@ -24,7 +24,8 @@ class OtherNonce implements Nonce
 
     public function get(): string
     {
-        $nonce = wp_create_nonce();
+        $nonce = "error";
+        return $nonce;
     }
 
     /**

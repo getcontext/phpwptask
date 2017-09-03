@@ -21,7 +21,6 @@ final class NonceService
     {
     }
 
-
     public function getUrlNonce(string $param): Nonce
     {
         $nonce = NonceFactory::getUrlNonce($param);
@@ -52,5 +51,10 @@ final class NonceService
         $result = null;
         $result = NonceVerifierFactory::verifyAjax($nonce);
         return $result;
+    }
+
+    public function applyNonceLifetime(int $seconds): void
+    {
+        add_filter('nonce_life', $seconds);
     }
 }
