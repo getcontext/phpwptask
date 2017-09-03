@@ -29,7 +29,10 @@ class FormNonce implements Nonce
      * @var bool
      */
     protected $buffered;
-
+    /**
+     * @var string
+     */
+    protected $name;
 
     public function get(): string
     {
@@ -48,7 +51,7 @@ class FormNonce implements Nonce
     /**
      * @return mixed
      */
-    public function getLifetime()
+    public function getLifetime(): int
     {
         return $this->lifetime;
     }
@@ -56,7 +59,7 @@ class FormNonce implements Nonce
     /**
      * @param mixed $lifetime
      */
-    public function setLifetime($lifetime): void
+    public function setLifetime(int $lifetime): void
     {
         $this->lifetime = $lifetime;
     }
@@ -97,5 +100,21 @@ class FormNonce implements Nonce
     {
         if ($this->id) return $this->id;
         $this->id = base64_encode($this->get());
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
     }
 }

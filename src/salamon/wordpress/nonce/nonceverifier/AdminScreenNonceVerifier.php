@@ -10,6 +10,7 @@ namespace salamon\wordpress\nonce\nonceverifier;
 
 
 use salamon\wordpress\nonce\Nonce;
+use salamon\wordpress\nonce\NonceVerifier;
 
 class AdminScreenNonceVerifier implements NonceVerifier
 {

@@ -25,6 +25,10 @@ class OtherNonce implements Nonce
      * @var string
      */
     protected $param;
+    /**
+     * @var string
+     */
+    protected $name;
 
     public function get(): string
     {
@@ -67,5 +71,22 @@ class OtherNonce implements Nonce
     {
         if ($this->id) return $this->id;
         $this->id = base64_encode($this->get());
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
     }
 }

@@ -65,4 +65,13 @@ class ErrorNonce implements Nonce
     {
         return '';
     }
+
+    public function setName(string $param): void
+    {
+    }
+
+    public function getName(): string
+    {
+        return '';
+    }
 }

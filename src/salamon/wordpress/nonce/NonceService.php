@@ -16,6 +16,9 @@ use function Sodium\add;
 final class NonceService
 {
 
+    /**
+     * @var Nonce[]
+     */
     private $nonces = [];
 
     /**

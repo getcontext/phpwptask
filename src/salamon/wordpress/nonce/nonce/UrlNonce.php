@@ -44,7 +44,7 @@ class UrlNonce implements Nonce
     /**
      * @return mixed
      */
-    public function getLifetime()
+    public function getLifetime(): int
     {
         return $this->lifetime;
     }
@@ -60,7 +60,7 @@ class UrlNonce implements Nonce
     /**
      * @return mixed
      */
-    public function getParam()
+    public function getParam(): string
     {
         return $this->param;
     }
@@ -92,7 +92,7 @@ class UrlNonce implements Nonce
     /**
      * @return mixed
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -100,7 +100,7 @@ class UrlNonce implements Nonce
     /**
      * @param mixed $name
      */
-    public function setName($name)
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
