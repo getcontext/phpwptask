@@ -18,4 +18,10 @@ class FormNonce implements Nonce
     {
         // TODO: Implement get() method.
     }
+
+
+    public function setLifetime(int $limit): void
+    {
+        // TODO: Implement setLifetime() method.
+    }
 }
